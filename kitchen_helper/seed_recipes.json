@@ -1,0 +1,359 @@
+[
+  {
+    "name": "Classic Omelette",
+    "category": "breakfast",
+    "ingredients": ["egg", "butter", "salt", "pepper", "milk"],
+    "instructions": "Whisk eggs with milk, salt, and pepper. Melt butter in a pan over medium heat. Pour in egg mixture and cook, folding gently, until just set. Fold in half and serve.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Scrambled Eggs on Toast",
+    "category": "breakfast",
+    "ingredients": ["egg", "bread", "butter", "salt", "pepper"],
+    "instructions": "Melt butter in a pan. Whisk eggs with salt and pepper, pour into pan, and stir gently over low heat until creamy. Serve over toasted bread.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Tomato and Onion Omelette",
+    "category": "breakfast",
+    "ingredients": ["egg", "tomato", "onion", "salt", "pepper", "oil"],
+    "instructions": "Sauté chopped onion and tomato in oil until soft. Whisk eggs with salt and pepper, pour over vegetables, and cook until set.",
+    "prep_minutes": 15
+  },
+  {
+    "name": "Avocado Toast",
+    "category": "breakfast",
+    "ingredients": ["bread", "avocado", "salt", "pepper", "lemon"],
+    "instructions": "Toast bread. Mash avocado with lemon juice, salt, and pepper. Spread over toast.",
+    "prep_minutes": 8
+  },
+  {
+    "name": "Pancakes",
+    "category": "breakfast",
+    "ingredients": ["flour", "egg", "milk", "sugar", "butter", "baking powder"],
+    "instructions": "Mix flour, sugar, and baking powder. Whisk in egg and milk until smooth. Cook spoonfuls of batter in a buttered pan until golden on both sides.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "French Toast",
+    "category": "breakfast",
+    "ingredients": ["bread", "egg", "milk", "sugar", "cinnamon", "butter"],
+    "instructions": "Whisk egg, milk, sugar, and cinnamon. Dip bread slices and fry in buttered pan until golden on both sides.",
+    "prep_minutes": 15
+  },
+  {
+    "name": "Yogurt and Honey Bowl",
+    "category": "breakfast",
+    "ingredients": ["yogurt", "honey", "banana"],
+    "instructions": "Slice banana into a bowl of yogurt, drizzle with honey, and serve.",
+    "prep_minutes": 5
+  },
+  {
+    "name": "Garlic Butter Pasta",
+    "category": "dinner",
+    "ingredients": ["pasta", "garlic", "butter", "salt", "pepper", "parmesan"],
+    "instructions": "Boil pasta until al dente. Melt butter with minced garlic in a pan. Toss pasta with garlic butter, season, and top with parmesan.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "Tomato Pasta",
+    "category": "dinner",
+    "ingredients": ["pasta", "tomato", "garlic", "onion", "olive oil", "salt", "basil"],
+    "instructions": "Sauté onion and garlic in olive oil. Add chopped tomatoes and simmer into a sauce. Toss with cooked pasta and fresh basil.",
+    "prep_minutes": 30
+  },
+  {
+    "name": "Chicken Stir Fry",
+    "category": "dinner",
+    "ingredients": ["chicken", "soy sauce", "garlic", "onion", "bell pepper", "oil"],
+    "instructions": "Slice chicken and stir-fry in hot oil until cooked. Add garlic, onion, and bell pepper. Stir in soy sauce and cook 2 more minutes.",
+    "prep_minutes": 25
+  },
+  {
+    "name": "Beef and Potato Stew",
+    "category": "dinner",
+    "ingredients": ["beef", "potato", "onion", "carrot", "salt", "pepper", "water"],
+    "instructions": "Brown beef chunks. Add chopped onion, carrot, and potato. Cover with water, season, and simmer until tender, about 1 hour.",
+    "prep_minutes": 75
+  },
+  {
+    "name": "Grilled Chicken with Rice",
+    "category": "dinner",
+    "ingredients": ["chicken", "rice", "salt", "pepper", "lemon", "oil"],
+    "instructions": "Marinate chicken with lemon, salt, and pepper. Grill or pan-fry until cooked through. Serve over cooked rice.",
+    "prep_minutes": 35
+  },
+  {
+    "name": "Vegetable Fried Rice",
+    "category": "dinner",
+    "ingredients": ["rice", "egg", "carrot", "onion", "soy sauce", "oil"],
+    "instructions": "Scramble egg in oil, set aside. Stir-fry onion and carrot, add cooked rice and soy sauce, mix in egg, and stir well.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "Lentil Soup",
+    "category": "dinner",
+    "ingredients": ["lentils", "onion", "carrot", "garlic", "water", "salt", "olive oil"],
+    "instructions": "Sauté onion, carrot, and garlic in olive oil. Add lentils and water, simmer until lentils are soft, about 30 minutes. Season with salt.",
+    "prep_minutes": 40
+  },
+  {
+    "name": "Tomato Rice Soup",
+    "category": "dinner",
+    "ingredients": ["tomato", "rice", "onion", "garlic", "water", "salt"],
+    "instructions": "Sauté onion and garlic. Add chopped tomato and water, simmer, then add rice and cook until tender.",
+    "prep_minutes": 30
+  },
+  {
+    "name": "Cheese Quesadilla",
+    "category": "lunch",
+    "ingredients": ["tortilla", "cheese", "butter"],
+    "instructions": "Place cheese between two tortillas. Cook in a buttered pan until golden and cheese is melted on both sides.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Chicken Quesadilla",
+    "category": "lunch",
+    "ingredients": ["tortilla", "cheese", "chicken", "onion", "oil"],
+    "instructions": "Cook chicken with onion in oil. Layer with cheese inside a tortilla, fold, and cook until crispy and melted.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "Grilled Cheese Sandwich",
+    "category": "lunch",
+    "ingredients": ["bread", "cheese", "butter"],
+    "instructions": "Butter bread slices, add cheese between them, and grill in a pan until golden and cheese is melted.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Tuna Sandwich",
+    "category": "lunch",
+    "ingredients": ["bread", "tuna", "mayonnaise", "onion", "salt", "pepper"],
+    "instructions": "Mix tuna with mayonnaise, chopped onion, salt, and pepper. Spread between bread slices.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Potato Salad",
+    "category": "lunch",
+    "ingredients": ["potato", "mayonnaise", "onion", "salt", "pepper", "egg"],
+    "instructions": "Boil potatoes and eggs until tender. Chop and mix with mayonnaise, chopped onion, salt, and pepper.",
+    "prep_minutes": 30
+  },
+  {
+    "name": "Cucumber Tomato Salad",
+    "category": "lunch",
+    "ingredients": ["cucumber", "tomato", "onion", "olive oil", "lemon", "salt"],
+    "instructions": "Chop cucumber, tomato, and onion. Toss with olive oil, lemon juice, and salt.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Hummus and Veggie Wrap",
+    "category": "lunch",
+    "ingredients": ["tortilla", "hummus", "cucumber", "tomato", "lettuce"],
+    "instructions": "Spread hummus on tortilla, layer with sliced cucumber, tomato, and lettuce, then roll up.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Egg Fried Rice",
+    "category": "lunch",
+    "ingredients": ["rice", "egg", "soy sauce", "onion", "oil"],
+    "instructions": "Scramble egg in oil. Add chopped onion and cooked rice, stir-fry with soy sauce until heated through.",
+    "prep_minutes": 15
+  },
+  {
+    "name": "Banana Smoothie",
+    "category": "snack",
+    "ingredients": ["banana", "milk", "honey", "yogurt"],
+    "instructions": "Blend banana, milk, yogurt, and honey until smooth.",
+    "prep_minutes": 5
+  },
+  {
+    "name": "Apple Cinnamon Oatmeal",
+    "category": "breakfast",
+    "ingredients": ["oats", "apple", "cinnamon", "milk", "honey"],
+    "instructions": "Cook oats with milk over medium heat. Stir in diced apple and cinnamon, sweeten with honey.",
+    "prep_minutes": 15
+  },
+  {
+    "name": "Peanut Butter Banana Toast",
+    "category": "snack",
+    "ingredients": ["bread", "peanut butter", "banana"],
+    "instructions": "Toast bread, spread peanut butter, and top with banana slices.",
+    "prep_minutes": 5
+  },
+  {
+    "name": "Garlic Roasted Potatoes",
+    "category": "dinner",
+    "ingredients": ["potato", "garlic", "olive oil", "salt", "pepper", "rosemary"],
+    "instructions": "Toss potato chunks with olive oil, minced garlic, salt, pepper, and rosemary. Roast at 200°C until golden and crispy, about 30 minutes.",
+    "prep_minutes": 40
+  },
+  {
+    "name": "Spicy Chickpea Curry",
+    "category": "dinner",
+    "ingredients": ["chickpeas", "onion", "garlic", "tomato", "curry powder", "oil"],
+    "instructions": "Sauté onion and garlic in oil. Add tomato and curry powder, cook into a sauce, then stir in chickpeas and simmer 10 minutes.",
+    "prep_minutes": 30
+  },
+  {
+    "name": "Mushroom Risotto",
+    "category": "dinner",
+    "ingredients": ["rice", "mushroom", "onion", "garlic", "butter", "parmesan", "water"],
+    "instructions": "Sauté onion, garlic, and mushroom in butter. Add rice and gradually stir in warm water until creamy. Finish with parmesan.",
+    "prep_minutes": 35
+  },
+  {
+    "name": "Shrimp Garlic Pasta",
+    "category": "dinner",
+    "ingredients": ["pasta", "shrimp", "garlic", "butter", "lemon", "salt", "pepper"],
+    "instructions": "Cook pasta. Sauté shrimp and garlic in butter until shrimp is pink. Toss with pasta, lemon juice, salt, and pepper.",
+    "prep_minutes": 25
+  },
+  {
+    "name": "Caprese Salad",
+    "category": "lunch",
+    "ingredients": ["tomato", "cheese", "basil", "olive oil", "salt"],
+    "instructions": "Slice tomato and cheese, layer with fresh basil leaves, drizzle with olive oil and salt.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Chicken Caesar Salad",
+    "category": "lunch",
+    "ingredients": ["chicken", "lettuce", "parmesan", "bread", "mayonnaise", "lemon"],
+    "instructions": "Grill chicken and slice. Toss lettuce with mayonnaise-lemon dressing, top with chicken, parmesan, and croutons made from toasted bread.",
+    "prep_minutes": 25
+  },
+  {
+    "name": "Vegetable Soup",
+    "category": "dinner",
+    "ingredients": ["carrot", "potato", "onion", "celery", "water", "salt", "pepper"],
+    "instructions": "Sauté onion and celery. Add carrot, potato, and water. Simmer until vegetables are tender, season with salt and pepper.",
+    "prep_minutes": 35
+  },
+  {
+    "name": "Baked Salmon with Lemon",
+    "category": "dinner",
+    "ingredients": ["salmon", "lemon", "olive oil", "salt", "pepper", "garlic"],
+    "instructions": "Place salmon on a tray, drizzle with olive oil and lemon, season with salt, pepper, and minced garlic. Bake at 200°C for 15 minutes.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "Stuffed Bell Peppers",
+    "category": "dinner",
+    "ingredients": ["bell pepper", "rice", "beef", "onion", "tomato", "salt"],
+    "instructions": "Mix cooked rice with cooked beef, chopped onion, and tomato. Stuff into halved bell peppers and bake at 190°C for 25 minutes.",
+    "prep_minutes": 45
+  },
+  {
+    "name": "Onion and Egg Stir Fry",
+    "category": "breakfast",
+    "ingredients": ["egg", "onion", "oil", "salt", "pepper"],
+    "instructions": "Sauté sliced onion in oil until soft. Pour in beaten eggs and stir-fry until cooked. Season with salt and pepper.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Carrot and Ginger Soup",
+    "category": "dinner",
+    "ingredients": ["carrot", "onion", "ginger", "water", "salt", "olive oil"],
+    "instructions": "Sauté onion and ginger in olive oil. Add chopped carrot and water, simmer until soft, then blend smooth.",
+    "prep_minutes": 35
+  },
+  {
+    "name": "Classic Hummus",
+    "category": "snack",
+    "ingredients": ["chickpeas", "garlic", "lemon", "olive oil", "salt"],
+    "instructions": "Blend chickpeas, garlic, lemon juice, olive oil, and salt until smooth and creamy.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Greek Yogurt Cucumber Dip",
+    "category": "snack",
+    "ingredients": ["yogurt", "cucumber", "garlic", "salt", "olive oil"],
+    "instructions": "Grate cucumber and squeeze out excess water. Mix with yogurt, minced garlic, salt, and a drizzle of olive oil.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Banana Pancakes",
+    "category": "breakfast",
+    "ingredients": ["banana", "egg", "flour", "milk", "cinnamon"],
+    "instructions": "Mash banana, whisk in egg, flour, milk, and cinnamon. Cook spoonfuls in a pan until golden on both sides.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "Rice and Beans",
+    "category": "dinner",
+    "ingredients": ["rice", "beans", "onion", "garlic", "salt", "oil"],
+    "instructions": "Sauté onion and garlic in oil. Add cooked beans and rice, season with salt, and heat through, mixing well.",
+    "prep_minutes": 20
+  },
+  {
+    "name": "Spinach and Cheese Omelette",
+    "category": "breakfast",
+    "ingredients": ["egg", "spinach", "cheese", "butter", "salt"],
+    "instructions": "Sauté spinach in butter until wilted. Pour beaten eggs over, sprinkle cheese, and cook until set. Fold and serve.",
+    "prep_minutes": 12
+  },
+  {
+    "name": "Chicken Noodle Soup",
+    "category": "dinner",
+    "ingredients": ["chicken", "pasta", "carrot", "onion", "water", "salt", "pepper"],
+    "instructions": "Simmer chicken in water with onion and carrot until cooked. Shred chicken, return to pot, add pasta, and cook until tender.",
+    "prep_minutes": 40
+  },
+  {
+    "name": "Roasted Vegetable Medley",
+    "category": "dinner",
+    "ingredients": ["potato", "carrot", "bell pepper", "onion", "olive oil", "salt", "pepper"],
+    "instructions": "Chop all vegetables, toss with olive oil, salt, and pepper. Roast at 200°C for 30-35 minutes until tender and golden.",
+    "prep_minutes": 40
+  },
+  {
+    "name": "Egg and Avocado Toast",
+    "category": "breakfast",
+    "ingredients": ["egg", "bread", "avocado", "salt", "pepper"],
+    "instructions": "Toast bread and spread mashed avocado on top. Fry or poach an egg and place on top, season with salt and pepper.",
+    "prep_minutes": 12
+  },
+  {
+    "name": "Simple Garlic Bread",
+    "category": "snack",
+    "ingredients": ["bread", "garlic", "butter", "salt"],
+    "instructions": "Mix softened butter with minced garlic and salt. Spread on bread slices and toast until golden.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Tomato Cheese Toast",
+    "category": "snack",
+    "ingredients": ["bread", "tomato", "cheese", "olive oil", "salt"],
+    "instructions": "Top bread slices with sliced tomato and cheese, drizzle with olive oil and salt, then bake or toast until cheese melts.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Chicken Fried Rice",
+    "category": "dinner",
+    "ingredients": ["chicken", "rice", "egg", "onion", "soy sauce", "oil"],
+    "instructions": "Stir-fry chicken until cooked. Push aside, scramble egg, then add onion and cooked rice. Mix everything with soy sauce.",
+    "prep_minutes": 25
+  },
+  {
+    "name": "Carrot and Potato Mash",
+    "category": "dinner",
+    "ingredients": ["carrot", "potato", "butter", "milk", "salt", "pepper"],
+    "instructions": "Boil carrot and potato until soft, then mash with butter, milk, salt, and pepper.",
+    "prep_minutes": 30
+  },
+  {
+    "name": "Simple Bean Salad",
+    "category": "lunch",
+    "ingredients": ["beans", "tomato", "onion", "olive oil", "lemon", "salt"],
+    "instructions": "Mix beans, chopped tomato, and onion. Dress with olive oil, lemon juice, and salt.",
+    "prep_minutes": 10
+  },
+  {
+    "name": "Honey Yogurt Parfait",
+    "category": "breakfast",
+    "ingredients": ["yogurt", "honey", "oats", "banana"],
+    "instructions": "Layer yogurt, oats, and sliced banana in a glass. Drizzle honey between layers.",
+    "prep_minutes": 8
+  }
+]
