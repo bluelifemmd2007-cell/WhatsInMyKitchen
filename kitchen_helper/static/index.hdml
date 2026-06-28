@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kitchen Helper — What can I cook?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBF6EE;
+    --card: #FFFFFF;
+    --border: #E8E0D2;
+    --olive: #7A8B5C;
+    --olive-dark: #5F6E45;
+    --ember: #E0793C;
+    --ember-dark: #C2622A;
+    --text: #3A332B;
+    --text-dim: #8C8275;
+    --danger: #C25450;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 48px 20px 80px;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  header { text-align: center; margin-bottom: 36px; }
+
+  .kicker {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--olive-dark);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  h1 em { color: var(--ember); font-style: normal; }
+
+  .sub {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(58, 51, 43, 0.04);
+  }
+
+  label.field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .ingredient-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .ingredient-input-row input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    padding: 12px 14px;
+    font-family: 'Inter', sans-serif;
+  }
+  .ingredient-input-row input:focus { outline: none; border-color: var(--olive); }
+
+  .add-ingredient-btn {
+    background: var(--olive);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .add-ingredient-btn:hover { background: var(--olive-dark); }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    min-height: 36px;
+  }
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #EFE9DA;
+    color: var(--olive-dark);
+    padding: 7px 8px 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .chip button {
+    background: none;
+    border: none;
+    color: var(--olive-dark);
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    padding: 4px 6px;
+    opacity: 0.6;
+  }
+  .chip button:hover { opacity: 1; }
+
+  .empty-chips-hint {
+    color: var(--text-dim);
+    font-size: 13px;
+    align-self: center;
+  }
+
+  .category-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  select#category {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    padding: 9px 12px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .action-row { display: flex; gap: 10px; }
+
+  button#find-btn {
+    flex: 1;
+    background: var(--olive);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button#find-btn:hover { background: var(--olive-dark); }
+  button#find-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  button#ai-btn {
+    background: var(--ember);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  button#ai-btn:hover { background: var(--ember-dark); }
+  button#ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .loading-text {
+    display: none;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .loading-text.active { display: block; }
+
+  .error-box {
+    display: none;
+    background: rgba(194, 84, 80, 0.1);
+    border: 1px solid var(--danger);
+    color: #9A3B38;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+  .error-box.active { display: block; }
+
+  .results-meta {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .results { display: flex; flex-direction: column; gap: 14px; }
+
+  .recipe-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+  }
+  .recipe-card:hover { border-color: var(--olive); }
+  .recipe-card.expanded { border-color: var(--olive); }
+  .recipe-card.ai-recipe { border-color: var(--ember); background: #FFF8F2; }
+
+  .recipe-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .recipe-title-group { flex: 1; }
+
+  .ai-badge {
+    display: inline-block;
+    background: var(--ember);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+  }
+
+  .recipe-name {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+
+  .recipe-meta {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: capitalize;
+  }
+
+  .match-score {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .match-percent {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--olive);
+  }
+  .match-percent.low { color: var(--text-dim); }
+  .match-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+  }
+
+  .progress-bar {
+    height: 5px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--olive);
+    border-radius: 4px;
+  }
+  .ai-recipe .progress-fill { background: var(--ember); }
+
+  .recipe-details {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .recipe-details.active { display: block; }
+
+  .ingredient-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .ing-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .ing-tag.have { background: #E3EBD8; color: var(--olive-dark); }
+  .ing-tag.missing { background: #F3E3DC; color: var(--ember-dark); }
+
+  .instructions {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .prep-time {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 10px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-dim);
+    font-size: 12px;
+  }
+  footer code {
+    background: var(--card);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--olive-dark);
+    border: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Kitchen Helper</div>
+    <h1>What can I cook with <em>this</em>?</h1>
+    <p class="sub">Add the ingredients you have on hand and we'll find matching recipes — or invent something new with AI.</p>
+  </header>
+
+  <div class="panel">
+    <label class="field-label">Your ingredients</label>
+    <div class="ingredient-input-row">
+      <input type="text" id="ingredient-input" placeholder="e.g. egg, onion, tomato..." />
+      <button class="add-ingredient-btn" id="add-btn">Add</button>
+    </div>
+    <div class="chips" id="chips">
+      <span class="empty-chips-hint">No ingredients added yet — type one above and hit Add (or Enter).</span>
+    </div>
+
+    <div class="category-row">
+      <label class="field-label" style="margin:0;">Meal type</label>
+      <select id="category">
+        <option value="">Any</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snack">Snack</option>
+      </select>
+    </div>
+
+    <div class="action-row">
+      <button id="find-btn">Find Recipes</button>
+      <button id="ai-btn">✨ AI Idea</button>
+    </div>
+
+    <div class="loading-text" id="loading-text">Looking through the kitchen...</div>
+    <div class="error-box" id="error-box"></div>
+  </div>
+
+  <div id="results-section" style="display:none;">
+    <div class="results-meta" id="results-meta"></div>
+    <div class="results" id="results"></div>
+  </div>
+
+  <footer>
+    API base URL: <code id="api-base-display">http://127.0.0.1:8000</code>
+  </footer>
+
+</div>
+
+<script>
+  const API_BASE = "http://127.0.0.1:8000";
+  document.getElementById('api-base-display').textContent = API_BASE;
+
+  let ingredients = [];
+
+  function renderChips() {
+    const container = document.getElementById('chips');
+    if (ingredients.length === 0) {
+      container.innerHTML = '<span class="empty-chips-hint">No ingredients added yet — type one above and hit Add (or Enter).</span>';
+      return;
+    }
+    container.innerHTML = '';
+    ingredients.forEach((ing, idx) => {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.innerHTML = `${escapeHtml(ing)} <button data-idx="${idx}">×</button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        ingredients.splice(idx, 1);
+        renderChips();
+      });
+      container.appendChild(chip);
+    });
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function addIngredientFromInput() {
+    const input = document.getElementById('ingredient-input');
+    const value = input.value.trim();
+    if (value && !ingredients.includes(value.toLowerCase())) {
+      ingredients.push(value.toLowerCase());
+      renderChips();
+    }
+    input.value = '';
+    input.focus();
+  }
+
+  document.getElementById('add-btn').addEventListener('click', addIngredientFromInput);
+  document.getElementById('ingredient-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      addIngredientFromInput();
+    }
+  });
+
+  function showError(message) {
+    const box = document.getElementById('error-box');
+    box.textContent = message;
+    box.classList.add('active');
+  }
+  function clearError() {
+    document.getElementById('error-box').classList.remove('active');
+  }
+  function setLoading(isLoading, text) {
+    document.getElementById('find-btn').disabled = isLoading;
+    document.getElementById('ai-btn').disabled = isLoading;
+    const loadingEl = document.getElementById('loading-text');
+    loadingEl.textContent = text || 'Loading...';
+    loadingEl.classList.toggle('active', isLoading);
+  }
+
+  function renderRecipeCard(recipe) {
+    const card = document.createElement('div');
+    card.className = `recipe-card ${recipe.is_ai_generated ? 'ai-recipe' : ''}`;
+
+    const matchClass = recipe.match_percent < 50 ? 'low' : '';
+    const aiBadge = recipe.is_ai_generated ? '<div class="ai-badge">✨ AI Generated</div>' : '';
+
+    card.innerHTML = `
+      <div class="recipe-head">
+        <div class="recipe-title-group">
+          ${aiBadge}
+          <div class="recipe-name">${escapeHtml(recipe.name)}</div>
+          <div class="recipe-meta">${escapeHtml(recipe.category)}${recipe.prep_minutes ? ' · ' + recipe.prep_minutes + ' min' : ''}</div>
+        </div>
+        <div class="match-score">
+          <div class="match-percent ${matchClass}">${Math.round(recipe.match_percent)}%</div>
+          <div class="match-label">match</div>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${recipe.match_percent}%"></div></div>
+      <div class="recipe-details">
+        <div class="ingredient-tags"></div>
+        <div class="instructions"></div>
+      </div>
+    `;
+
+    const tagsContainer = card.querySelector('.ingredient-tags');
+    recipe.matched_ingredients.forEach(ing => {
+      const tag = document.createElement('span');
+      tag.className = 'ing-tag have';
+      tag.textContent = `✓ ${ing}`;
+      tagsContainer.appendChild(tag);
+    });
+    recipe.missing_ingredients.forEach(ing => {
+      const tag = document.createElement('span');
+      tag.className = 'ing-tag missing';
+      tag.textContent = `+ ${ing}`;
+      tagsContainer.appendChild(tag);
+    });
+
+    card.querySelector('.instructions').textContent = recipe.instructions;
+
+    card.addEventListener('click', () => {
+      const details = card.querySelector('.recipe-details');
+      const isOpen = details.classList.contains('active');
+      details.classList.toggle('active', !isOpen);
+      card.classList.toggle('expanded', !isOpen);
+    });
+
+    return card;
+  }
+
+  function renderResults(recipes, metaText) {
+    document.getElementById('results-section').style.display = 'block';
+    document.getElementById('results-meta').textContent = metaText;
+    const container = document.getElementById('results');
+    container.innerHTML = '';
+    if (recipes.length === 0) {
+      container.innerHTML = '<div class="results-meta">No matches found. Try adding more ingredients, or use the AI Idea button.</div>';
+      return;
+    }
+    recipes.forEach(r => container.appendChild(renderRecipeCard(r)));
+  }
+
+  document.getElementById('find-btn').addEventListener('click', async () => {
+    clearError();
+    if (ingredients.length === 0) {
+      showError('Add at least one ingredient first.');
+      return;
+    }
+
+    setLoading(true, 'Searching the recipe database...');
+    try {
+      const category = document.getElementById('category').value;
+      const response = await fetch(`${API_BASE}/api/match`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ingredients, category: category || null })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.detail || 'Something went wrong.');
+
+      renderResults(data.results, `Found ${data.results.length} match${data.results.length === 1 ? '' : 'es'} out of ${data.total_recipes_in_db} recipes in the database.`);
+    } catch (err) {
+      showError(err.message || 'Unexpected error. Is the backend running?');
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  document.getElementById('ai-btn').addEventListener('click', async () => {
+    clearError();
+    if (ingredients.length === 0) {
+      showError('Add at least one ingredient first.');
+      return;
+    }
+
+    setLoading(true, 'Asking the AI chef for a fresh idea...');
+    try {
+      const category = document.getElementById('category').value;
+      const response = await fetch(`${API_BASE}/api/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ingredients, category: category || null })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.detail || 'Something went wrong.');
+
+      renderResults([data.recipe], 'A fresh idea, generated just for your ingredients:');
+    } catch (err) {
+      showError(err.message || 'Unexpected error. Is the backend running and is GROQ_API_KEY set?');
+    } finally {
+      setLoading(false);
+    }
+  });
+</script>
+</body>
+</html>
